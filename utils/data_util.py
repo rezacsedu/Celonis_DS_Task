@@ -53,7 +53,6 @@ def create_dataset(gestures, shuffle=False):
         y = y[p]
     return X, y
 
-
 def getFeatureSKTime(TRAIN_PATH, TEST_PATH):
     X_train, y_train = load_from_tsfile_to_dataframe(TEST_PATH)
     X_test, y_test = load_from_tsfile_to_dataframe(TRAIN_PATH)
