@@ -134,7 +134,7 @@ Following are minimal solutions to these tasks related to making the ML software
 #### Task 2.1
 Although, I used GitHub Actions for setting up workflow_dispatch event trigger for CI, to be honest, I don't have much experience of designing a DevOps pipeline using e.g., GitHub Actions or creating Python package for PyPI. But as far as I remember, once I employed the CodeQL Analysis workflow, which runs a series of CodeQL security tests on code after we merge it to the main branch to ensure there are no known vulnerabilities. The workflow visualizer and live logs are also extremely useful to get a full look into how the pipeline is running. The following figure shows what different triggered events for the CI workflows: 
 
-<p align="center"><img src="imgs/ci_github_action.png?" width="700" height="200"></p>
+<p align="center"><img src="imgs/ci_github_action.png?" width="700" height="400"></p>
 
 Apart from setting up the CI/CD in an automated way, we practice peer review and test-driven development (TDD) that include coding, testing (unit test, for examples). Further, we follow commenting, consistent use of spaces, tabs, clean codes, modular programming, consistency in naming convention, etc. Please don't ask, how much of these I followed for this repo! ;)
 
