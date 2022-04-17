@@ -40,6 +40,17 @@ A simple baseline logistic regression has been implemented in Numpy (without any
 3. **Random initialization of parameters**: we just randomly initialize parameters 'w' and 'b' with 0 to start with (w vector has the shape (942, 1)), whereas the values will be updated using the optimization function. Then the cross-entropy cost function is optimze to minimize the cost. 
 4. **Forward propagation and optimization**: Using the gradients descent algorithm, the gradients of the 'w' and 'b' parameters are computed and the parameters are updated, as follows: w := w - lr * dw; b := b - lr * db. Thus, looping over for n_iter, we hope to reach a convergence point where the cost function won't decrease any further. 
 
+#### How to use this solution
+```git clone https://github.com/rezacsedu/Celonis_DS_Task.git
+cd data/
+unzip UWaveGestureLibraryAll.zip```
+
+Then from within the 'Celonis_DS_Task' directory, run the following from command line:
+
+```python main.py``` 
+
+It will show the results on console. Besides, the convergence of the training losses for the numpy based logistic regression will be generated in the imgs folder with the 'training_loss.png' file name. 
+
 A supporting notebook [Classification_with_manual_FE.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/Classification_with_manual_FE.ipynb) is provided, which shows how the baseline logistic regression model works compared to other classifiers (e.g., logistic regression in sklearn and TimeSeriesForestClassifier from the SKTIME library). In particular, my logistic regression model yields accuracy of 54%, underperforming the sklearn-based logistic regression and sktime-based TimeSeriesForestClassifier that yielded accuracy of 69% and 90%, respectively. 
 
 On the other hand, the sample classifier clearly outperforms itself when it ws trained on the features extracted with the sktime library. In particular, my logistic regression model this time yields accuracy of 84%, underperforming the sklearn-based logistic regression that yielded accuracy of 81%. On the other hand and sktime-based TimeSeriesForestClassifier that yielded accuracy of 97%. Please refer to the supporting notebook [Classification_with_SKTIME_FE.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/Classification_with_SKTIME_FE.ipynb). This signifies that feature engineering has significant impacts on the performance of individual models. 
