@@ -20,9 +20,7 @@ Downloaded the dataset from this [link](zhen-wang.appspot.com/rice/files/uwave/u
 
 In the above picture, 8 different types of gestures have been shown, where the dot denotes the start and the arrow the end of the gesture. 
 
-Besides, I did some manual way of resturucturing the folders for gestures, gesture 1, gesture 2, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. But anyway, sometimes we do things in a brute-force way so! Even I wrote another script for data download and extraction of .rar files. Please see [naive_data_prep.py]((https://github.com/rezacsedu/Celonis_DS_Task/blob/main/utils/naive_data_prep.py)) for more detail. 
-
-After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
+Besides, I did some manual way of resturucturing the folders for gestures, gesture 1, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. But anyway, sometimes we do things in a brute-force way so! Even I wrote another script for data download and extraction of .rar files. Please see [naive_data_prep.py]((https://github.com/rezacsedu/Celonis_DS_Task/blob/main/utils/naive_data_prep.py)) for more detail. After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
 
 <p align="center"><img src="imgs/struct.png?" width="600" height="300"></p>
 
@@ -32,6 +30,5 @@ As just training and evaluating a model is of no use unless it can be used as a 
   - How would you design a devops pipeline using e.g. Github Actions for a Python package? Which functionalities would you include to ensure code quality and consistency?
   - Assuming the pipeline you implemented will be deployed as a product. Now the customer also wants to enable real time classification and consume an API that returns
 the classification results. How would you fit that into the existing architecture?
-  - The whole system has been a huge success and also other customers want to use it. How would you adapt everything to be able to serve multiple customers with this
-product? Especially keep in mind scalability and data privacy.
+  - The whole system has been a huge success and also other customers want to use it. How would you adapt everything to be able to serve multiple customers  ==, especially keep in mind scalability and data privacy.
   - What would you recommend to automatically transfer machine learning models to production by running microservices for inferencing?
