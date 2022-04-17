@@ -16,7 +16,7 @@ Downloaded the dataset from this [link](zhen-wang.appspot.com/rice/files/uwave/u
   - Inside each .rar file, there are .txt files recording the time series of acceleration of each gesture. The .txt files are named as [somePrefix]$gestureIndex-$repeatIndex.txt, where $gestureIndex is the index of the gesture as in the 8-gesture vocabulary, and $repeatIndex is the index of the repetition of the same gesture pattern from 1 to 10.
   - In each .txt file, the first column is the x-axis acceleration, the second y-axis acceleration, and the third z-axis acceleration. The unit of the acceleration data is G, or acceleration of gravity. 
 
-<p align="center"><img src="imgs/gesture.png?" width="600" height="300"></p>
+<p align="center"><img src="imgs/gesture.png?" width="400" height="300"></p>
 
 In the above picture, 8 different types of gestures have been shown, where the dot denotes the start and the arrow the end of the gesture. 
 
@@ -24,7 +24,7 @@ Besides, I did some manual way of resturucturing the folders for gestures, gestu
 
 After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
 
-<p align="center"><img src="imgs/folder.png?" width="200" height="200"></p>
+<p align="center"><img src="imgs/folder.png?" width="600" height="300"></p>
 
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
