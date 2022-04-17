@@ -108,7 +108,7 @@ As just training and evaluating a model is of no use unless it can be used as a 
 ### Solution 
 The following figure represents the high-level workflow for making a ML model a ML software product: 
 
-<p align="center"><img src="imgs/decision_boundary_2.png?" width="650" height="300"></p>
+<p align="center"><img src="imgs/stages.png?" width="650" height="300"></p>
 
 Following are minimal solutions to these tasks related to making the ML software ready: 
 
