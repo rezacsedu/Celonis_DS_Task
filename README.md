@@ -42,9 +42,34 @@ A simple baseline logistic regression has been implemented in Numpy (without any
 3. **Random initialization of parameters**: we just randomly initialize parameters 'w' and 'b' with 0 to start with (w vector has the shape (942, 1)), whereas the values will be updated using the optimization function. Then the cross-entropy cost function is optimze to minimize the cost. 
 4. **Forward propagation and optimization**: Using the gradients descent algorithm, the gradients of the 'w' and 'b' parameters are computed and the parameters are updated, as follows: w := w - lr * dw; b := b - lr * db. Thus, looping over for n_iter, we hope to reach a convergence point where the cost function won't decrease any further. 
 
-A supporting notebook [Classification_with_manual_FE.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/Classification_with_manual_FE.ipynb) is provided, which shows how the baseline logistic regression model works compared to other classifiers (e.g.g, logistic regression in sklearn and TimeSeriesForestClassifier from the SKTIME library). 
+A supporting notebook [Classification_with_manual_FE.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/Classification_with_manual_FE.ipynb) is provided, which shows how the baseline logistic regression model works compared to other classifiers (e.g.g, logistic regression in sklearn and TimeSeriesForestClassifier from the SKTIME library). In particular, my logistic regression model yields accuracy of 54%, underperforming the sklearn-based logistic regression and sktime-based TimeSeriesForestClassifier that yielded accuracy of 69% and 90% respectively. 
+
+On the other hand, the sample classifier clearly outperforms itself when it ws trained on the features extracted with the sktime library. In particular, my logistic regression model this time yields accuracy of 84%, underperforming the sklearn-based logistic regression that yielded accuracy of 81%. On the other hand and sktime-based TimeSeriesForestClassifier that yielded accuracy of 97%. Please refer to the supporting notebook [Classification_with_SKTIME_FE.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/Classification_with_SKTIME_FE.ipynb). This signifies that feature engineering has significant impacts on the performance of individual models. 
 
 #### Task 1.3: Training other models using AutoML
+I tried with PyCaret - one of my favourite AutoML library. I found that the extra tree and randome forest classifiers turns to be the best model for this dataset, giving f1 score of over 97%, even outperforming the result reportted in the original paper by 1%! To justiofiy this, I have prepared a supporting notebook  [PyCaret_with_FE_SKTIME.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/PyCaret_with_FE_SKTIME.ipynb). 
+
+To give the quick impression, let's see how different classifiers performed on the data: 
+
+<p align="center"><img src="imgs/pycaret_compare_model.png?" width="550" height="250"></p>
+
+Let's see how did extra tree classifier performed across different gesture types w.r.t confusion matrix:
+
+<p align="center"><img src="imgs/pycaret_compare_model.png?" width="550" height="250"></p>
+
+As we can see it mostly made correct prediction and was less confused among classifiers. Further, we plot the ROC curve
+
+<p align="center"><img src="imgs/roc.png?" width="550" height="250"></p>
+
+The above ROC signifies the AUC scores were very consistent across different folds, which is a sign of high generalizability. Now let's see how the decision boundary for the extra tree classiifer based on two features:
+
+<p align="center"><img src="imgs/decision_boundary.png?" width="550" height="250"></p>
+
+As we can see that, except for a few samples, extra tree classiifer manage to create a clear decision boundary for different types of gesture. IN such a scenario, a linear SVM (with a linear kernel) is also expected to work better, but actually it didn't. 
+
+To further compare, I created another notebook with PyCaret but the models were trained on the features [PyCaret_with_FE_Numpy.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/PyCaret_with_FE_Numpy.ipynb) extracted with pure numpy. 
+
+<p align="center"><img src="imgs/pycaret_compare_model.png?" width="550" height="250"></p>
 
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
