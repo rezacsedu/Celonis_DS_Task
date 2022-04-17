@@ -119,7 +119,7 @@ Following are minimal solutions to these tasks related to making the ML software
   - Create clusters and hosting the docker container on the cloud (or on premise) to and deploy the ML pipeline and consuming the web-service. 
 
 #### Task 2.1
-Designing a DevOps pipeline using e.g. Github Actions. A CodeQL Analysis workflow: This workflow runs a series of CodeQL security tests on our code after we merge it to the main branch to ensure there are no known vulnerabilities. workflow visualizer and live logs to get a full look into how your pipeline is running.
+To be honest, I don't have much experience of designing a DevOps pipeline using e.g. Github Actions or creating Python packeage for PyPI. A CodeQL Analysis workflow: This workflow runs a series of CodeQL security tests on our code after we merge it to the main branch to ensure there are no known vulnerabilities. workflow visualizer and live logs to get a full look into how your pipeline is running. 
 
 #### Task 2.2
 Deploying and serving the model as a web app via **REST API** with **FastAPI** (for backend) and **Streamlit** (for frontend). In such a setting, **uvicorn** works for serving the API. The uvicorn is a good choice (e..g, compared to **Apache** or **nginx**) as it is a lightning-fast **ASGI** (aka. Asynchronous Server Gateway Interface) server implementation. 
