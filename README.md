@@ -16,7 +16,15 @@ Downloaded the dataset from this [link](zhen-wang.appspot.com/rice/files/uwave/u
   - Inside each .rar file, there are .txt files recording the time series of acceleration of each gesture. The .txt files are named as [somePrefix]$gestureIndex-$repeatIndex.txt, where $gestureIndex is the index of the gesture as in the 8-gesture vocabulary, and $repeatIndex is the index of the repetition of the same gesture pattern from 1 to 10.
   - In each .txt file, the first column is the x-axis acceleration, the second y-axis acceleration, and the third z-axis acceleration. The unit of the acceleration data is G, or acceleration of gravity. 
 
-Besides, I did some manual way of resturucturing the folders for gestures, gesture 1, gesture 2, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. But anyway, sometimes we do things in a brute-force way so ;) Even I wrote another script for data download and extraction of .rar files. Please see naive_data_prep.py for more detail. 
+<p align="center"><img src="imgs/gesture.png?" width="300" height="200"></p>
+
+In the above picture, 8 different types of gestures have been shown, where the dot denotes the start and the arrow the end of the gesture. 
+
+Besides, I did some manual way of resturucturing the folders for gestures, gesture 1, gesture 2, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. But anyway, sometimes we do things in a brute-force way so! Even I wrote another script for data download and extraction of .rar files. Please see [naive_data_prep.py]((https://github.com/rezacsedu/Celonis_DS_Task/blob/main/utils/naive_data_prep.py)) for more detail. 
+
+After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
+
+<p align="center"><img src="imgs/folder.png?" width="300" height="200"></p>
 
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
