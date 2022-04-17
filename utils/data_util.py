@@ -17,10 +17,8 @@ def extract_gesture(directory):
     gesture = []
     #label = []
     pathlist = Path(directory).rglob('*.txt')
-    print(pathlist)
     
     for path in pathlist:
-        print(path)
         file = open(path, "r")
         lines = file.readlines()[1:]
         file.close()
