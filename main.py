@@ -14,7 +14,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 import matplotlib.pyplot as plt
 
 # Feature extraction from the uWaveGesture dataset 
-BASE_PATH = 'data/'
+BASE_PATH = 'data/uWaveGestureLibrary/'
 gesture_1 = extract_gesture(BASE_PATH + '/U1/')
 gesture_2 = extract_gesture(BASE_PATH + '/U2/')
 gesture_3 = extract_gesture(BASE_PATH + '/U3/')
