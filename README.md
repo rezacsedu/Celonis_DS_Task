@@ -49,7 +49,7 @@ I tried with PyCaret - one of my favourite AutoML library. I found that the extr
 
 To give the quick impression, let's see how different classifiers performed on the data: 
 
-<p align="center"><img src="imgs/pycaret_compare_model.png?" width="600" height="300"></p>
+<p align="center"><img src="imgs/pycaret_compare_model.png?" width="700" height="350"></p>
 
 Let's see how did extra tree classifier performed across different gesture types w.r.t confusion matrix:
 
@@ -61,16 +61,16 @@ As we can see it mostly made correct prediction and was less confused among clas
 
 The above ROC signifies the AUC scores were very consistent across different folds, which is a sign of high generalizability. Now let's see how the decision boundary for the extra tree classiifer based on two features:
 
-<p align="center"><img src="imgs/decision_boundary.png?" width="600" height="300"></p>
+<p align="center"><img src="imgs/decision_boundary.png?" width="650" height="350"></p>
 
 As we can see that, except for a few samples, extra tree classifer manage to create a clear decision boundary for different types of gesture. IN such a scenario, a linear SVM (with a linear kernel) is also expected to work better, but actually it didn't. 
 
 To further compare, I created another notebook with PyCaret but the models were trained on the features [PyCaret_with_FE_Numpy.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/PyCaret_with_FE_Numpy.ipynb) extracted with pure numpy. Let's see how did extra tree classifier performed across different gesture types w.r.t confusion matrix:
 
-<p align="center"><img src="imgs/cm2.png?" width="600" height="250"></p>
+<p align="center"><img src="imgs/cm_2.png?" width="600" height="250"></p>
 As we can see the classifer made more wrong prediction than that when features were extracted using sktime libarray, making it more confused among classes. Now let's see how the decision boundary for the extra tree classiifer based on two features:
 
-<p align="center"><img src="imgs/decision_boundary_2.png?" width="600" height="250"></p>
+<p align="center"><img src="imgs/decision_boundary_2.png?" width="650" height="300"></p>
 
 As we can see the decision boundary for the extra tree classifer manage is quite different, perhaps due to different way of stacking of the samples and quality of the features extracted. 
 
