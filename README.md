@@ -95,6 +95,19 @@ Accuracy: 0.8461538461538461
 ```
 This is a Maven project, by the way. I can give a live demo too, if you'd be interested in. 
 
+### Other important considerations
+  - Data quality assessment  
+  - Using k-fold cross validation + grid/random/Bayesian hyperparameter optimization
+  - Regularization, e.g., LASSO to penalize certain params if they are likely to create overfitting, drop out, Gaussian noise
+  - Concept/data drift and generalizability
+  - Data bias, imbalance, fairness
+  - Black-box vs. interpretability
+  - Adversarial robustness
+  - Privacy-preserving capability
+  - Multimodality
+  - Model compression for resource-constrined devices (e.g., edge, mobile devices) -> model surrogation, model pruning, dimensionality reduction
+  - Reducing inferencing time. 
+
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
 
@@ -126,3 +139,7 @@ Deploying and serving the model as a web app via **REST API** with **FastAPI** (
 The whole application (FastAPI + Streamlit) can be packaged using **Docker** (containerized). However, instead of having two separate services running, both front- and backend can be containerized with **Docker-compose**. Having a docker-compose file configured, we can no longer need to build each **Dockerfile** of different images at a time or separately. Then REST API call can be performed batch prediction or inferencing. Make sure to employ **asynchronous** programming while creating prediction routes in FastAPI. More specifically, we can use "**async**" function when creating the prediction FAstAPI routes. This will enable the FastAPI to create **multiple routes concurrently**. Alternatively, Flask 2.0 can be used that supports **async** routes now. In particular, the "**httpx**" library and use the "**asyncio**" co-routines. Nevertheless, in my earlier days, I used to use "**semaphore**" to limit number of concurrent requests using the asyncio library for that. 
 
 For **security**, I don't have much working experience, but previously, I used the security utilities of FastAPI. In particular, using **OAuth2** enables authentication to authorized users only by generating **passwords** for respective **bearers**. On the other hand, when we have millions of concurrent users, **Kubernetes** or **docker-swarm** can be used for running and coordinating containerized applications across a cluster of machines. I roughly know about docker-swarm but did some deployment with kubernetes. Once a Docker image built, it can be uploaded to Google Container Registry (GCR). Once the container is uploaded on GCR, a cluster consists of a pool of Compute Engine VM instances need to be created for running the app onto Google Kubernetes Engine (GKE). However, when it comes to having features like model tracking, logging, and registry, **MLflow** can be used. MLflow also integrates well within the CI/CD pipeline and, during MLOps, where Data Scientist and ML Engineers can work collaboratively with deployment engineers to develop and deploy new versions of ML models and monitor their performance.
+
+Therefore, taking into consideration of all the CI/CD, deployment, and monitoring stuff, the following diagram shows overall stages of an ML CI/CD automation pipeline:
+
+<p align="center"><img src="imgs/stages_cicd.png?" width="700" height="200"></p>
