@@ -5,7 +5,7 @@ import os
 import numpy as np
 from pathlib import Path
 from pathlib import Path
-from data_util import *
+from utils.data_util import *
 from lr import LogisticRegression as LR
 from sklearn.model_selection import KFold, train_test_split
 from sktime.classification.interval_based import TimeSeriesForestClassifier
@@ -14,9 +14,6 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 import matplotlib.pyplot as plt
 
 # Feature extraction from the uWaveGesture dataset 
-! cd data/
-! unzip UWaveGestureLibraryAll.zip -d .
-
 BASE_PATH = 'data/'
 gesture_1 = extract_gesture(BASE_PATH + '/U1/')
 gesture_2 = extract_gesture(BASE_PATH + '/U2/')
