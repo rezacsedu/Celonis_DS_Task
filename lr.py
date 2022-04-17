@@ -1,12 +1,19 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#----------------------------------------------------------------------------
+# Created By  : Md. Rezaul Karim
+# Created Date: 16/04/2022
+# version ='1.0'
+
 import numpy as np
 
-## Tried to follow scikit-learn -- where variable with trailing underscore is designed to have value after the fit() method is called for example.
- 
 class LogisticRegression:
-    
-    def __init__(self, n_iter = 50000, thres=1e-3):
+    """ A simple baseline implementation of logistic regression, without any regularizers, etc. Besides, I tried to follow scikit-learn 
+       -- where variable with trailing underscore is designed to have value after the fit() method is called for example. """ 
+
+    def __init__(self, n_iter = 50000, threshold=1e-3):
         self.n_iter = n_iter
-        self.thres = thres
+        self.thres = threshold
     
     def fit(self, X, y, batch_size=128, lr=0.001, rand_seed=4, verbose=False): 
         np.random.seed(rand_seed) 
@@ -60,4 +67,13 @@ class LogisticRegression:
         return -1 * np.mean(y * np.log(probs))
 
     def softmax(self, z):
+	""" This is the activation function based on which the predictions will be made. It takes z - product of features with weights 
+	and returns discrete class over the classes. In fact, this makes the logistic regression different from linear regression. 
+        """
         return np.exp(z) / np.sum(np.exp(z), axis=1).reshape(-1, 1)
+
+    def sigmoid(self, z):
+        """ This is the logit function based on which the predictions will be made. It takes z - product of features with weights 
+	and thus, to restrict those values in the range of 0 and 1. sigmoid(z)=1/(1+e^(-z))
+        """
+        return 1 / (1 + np.exp(-z))
