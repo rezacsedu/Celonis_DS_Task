@@ -16,8 +16,8 @@ class LogisticRegression:
         self.threshold = threshold
     
     def fit(self, X, y, batch_size=128, lr=0.001, rand_seed=4, verbose=False): 
-	"""We just randomly initialize parameters 'w' and 'b' with 0 to start with (w vector has the shape (942, 1)), whereas the values will be updated using the optimization function. 
-	"""
+        """We just randomly initialize parameters 'w' and 'b' with 0 to start with (w vector has the shape (945, 1)), whereas the values will be updated using the optimization function."""
+
         np.random.seed(rand_seed) 
         self.classes = np.unique(y)
         self.class_labels = {c:i for i, c in enumerate(self.classes)}
@@ -31,7 +31,7 @@ class LogisticRegression:
     def fit_(self, X, y, batch_size, lr, verbose):
         """ We optimize the cost function (cross-entropy) and update the parameters to minimize the cost. Using the gradients descent algorithm, 
 	    the gradients of the 'w' and 'b' parameters are computed and the parameters are updated, as follows: w := w - lr * dw; b := b - lr * db. 
-            Thus, looping over for n_iter, we hope to reach a convergence point where the cost function won't decrease any further. """
+        Thus, looping over for n_iter, we hope to reach a convergence point where the cost function won't decrease any further. """
 	
         i = 0
         while (not self.n_iter or i < self.n_iter):
@@ -70,17 +70,13 @@ class LogisticRegression:
         return np.insert(X, 0, 1, axis=1)
  
     def cross_entropy(self, y, probs):
-	""" Cross-entropy between two probability distributions of y and p_pred """ 
+        """ Cross-entropy between two probability distributions of y and p_pred """ 
+
         return -1 * np.mean(y * np.log(probs))
 
     def softmax(self, z):
-	""" This is the activation function based on which the predictions will be made. It takes z - product of features with weights 
+        """ This is the activation function based on which the predictions will be made. It takes z - product of features with weights 
 	and returns discrete class over the classes. In fact, this makes the logistic regression different from linear regression. 
         """
-        return np.exp(z) / np.sum(np.exp(z), axis=1).reshape(-1, 1)
 
-    def sigmoid(self, z):
-        """ This is the logit function based on which the predictions will be made. It takes z - product of features with weights 
-	and thus, to restrict those values in the range of 0 and 1. sigmoid(z)=1/(1+e^(-z))
-        """
-        return 1 / (1 + np.exp(-z))
+        return np.exp(z) / np.sum(np.exp(z), axis=1).reshape(-1, 1)
