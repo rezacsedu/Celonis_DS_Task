@@ -32,13 +32,13 @@ To extract feature, I wrote a script named data_util.py. There are three methods
   - **create_dataset**: it takes a set of gestures as input and generates a time series and labels. More technically, it creates a time series data by stacking the samples of all the gestures (total 4,480 samples) side by side, such that: i) the dimension of each sample is (n_samples, 3 * n_features) = (4480, 942), where the number of features = 314 * 3 = 942 and the nmber of n_samples = len(gesture) * 8 = 560 * 8 = 4480.  
   - **getFeatureSKTime**: this function is used to extract features using the sktime library. It takes the paths of training and set .ts file and returns the array of features and labels (X, y).
 
-#### Task 1.2: Implementing logistic regression
+#### Task 1.2: Implementation of logistic regression in NumPy
 A simple baseline logistic regression has been implemented in NumPy (without any regularizes) in the [lr.py script](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/lr.py). The algorithm has several components: 
 
-1. **An activation function**: based on which the predictions will be made. We take z - product of features with weights and generate discrete class over the classes. In fact, this makes the logistic regression different from linear regression.
+1. **Softmax activation function**: It takes z (product of features with weights) and generate probbality distribution over the classes -> based on which the predictions will be made. In fact, this makes the logistic regression different from linear regression.
 2. **Cost function**: Cross-entropy between two probability distributions of y and p_pred
-3. **Random initialization of parameters**: we just randomly initialize parameters 'w' and 'b' with 0 to start with (w vector has the shape (942, 1)), whereas the values will be updated using the optimization function. Then the cross-entropy cost function is optimized to minimize the cost. 
-4. **Forward propagation and optimization**: Using the gradients descent algorithm, the gradients of the 'w' and 'b' parameters are computed and the parameters are updated, as follows: w := w - lr * dw; b := b - lr * db. Thus, looping over for n_iter, we hope to reach a convergence point where the cost function won't decrease any further. 
+3. **Random initialization of parameters**: The parameters 'w' and 'b' are randomly initialized with 0 to start with (w vector has the shape (945, 1)), whereas the values will be updated using the optimization function. Then the cross-entropy cost function is optimized to minimize the cost during the backprop. 
+4. **Forward propagation and optimization**: Using gradients descent algorithm, gradients of 'w' and 'b' parameters are computed and updated, as follows: w := w - lr * dw; b := b - lr * db. Thus, looping over for n_iter, we hope to reach a convergence point where the cost function won't decrease any further. 
 
 #### How to use this solution
   ```git clone https://github.com/rezacsedu/Celonis_DS_Task.git
