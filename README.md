@@ -106,12 +106,25 @@ As just training and evaluating a model is of no use unless it can be used as a 
   - **T2.4:** What would you recommend to automatically transfer machine learning models to production by running microservices for inferencing?
 
 ### Solution 
+The following figure represents the high-level workflow for making a ML model a ML software product: 
+
+<p align="center"><img src="imgs/decision_boundary_2.png?" width="650" height="300"></p>
+
 Following are minimal solutions to these tasks related to making the ML software ready: 
 
-  - **Task 2.1**: Designing a DevOps pipeline using e.g. Github Actions. 
+  - Training a machine learning model on a local system or cloud
+  - Creating a frontend to make the model accessible via the web using a web framework e.g Streamlit
+  - Wrapping the inference logic with a backend framework e.g FastAPI
+  - Using docker to containerise the application
+  - Create clusters and hosting the docker container on the cloud (or on premise) to and deploy the ML pipeline and consuming the web-service. 
 
-  - **Task 2.2**: Deploying and serving the model as a web app via **REST API** with **FastAPI** (for backend) and **Streamlit** (for frontend). In such a setting, **uvicorn** works for serving the API. The uvicorn is a good choice (e..g, compared to **Apache** or **nginx**) as it is a lightning-fast **ASGI** (aka. Asynchronous Server Gateway Interface) server implementation. 
+#### Task 2.1
+Designing a DevOps pipeline using e.g. Github Actions. 
 
-  - **Task 2.3 & T2.4**: The whole application (FastAPI + Streamlit) can be packaged using **Docker** (containarized). However, instead of having two seperate services running, both front- and backend can be containerized with **Docker-compose**. Having a docker-compose file configured, we can no longer need to build each **Dockerfile** of different images at a time or seperately. Then REST API call can be perform batch prediction or inferencing. Make sure to employ **asynchronous** programming while creating prediction routes in FastAPI. More specifically, we can use "**async**" function when creating the prediction FAstAPI routes. This will enable the FastAPI to create **multiple routes concurently**. Alternatively, Flask 2.0 can be used that supports **async** routes now. In particular, the "**httpx**" library and use the "**asyncio**" co-routines. Nevertheless, in my earlier days, I used to use "**semaphore**" to limit number of concurrent requests using the asyncio library for that. On the other hand, when we have millions of concurrent users, the containers can then be scaled up and deployed across cluster of nodes using **Kubernetes** or **docker-swarm**. I roughly know about 
+#### Task 2.2
+Deploying and serving the model as a web app via **REST API** with **FastAPI** (for backend) and **Streamlit** (for frontend). In such a setting, **uvicorn** works for serving the API. The uvicorn is a good choice (e..g, compared to **Apache** or **nginx**) as it is a lightning-fast **ASGI** (aka. Asynchronous Server Gateway Interface) server implementation. 
 
+#### Task 2.3 & T2.4
+The whole application (FastAPI + Streamlit) can be packaged using **Docker** (containarized). However, instead of having two seperate services running, both front- and backend can be containerized with **Docker-compose**. Having a docker-compose file configured, we can no longer need to build each **Dockerfile** of different images at a time or seperately. Then REST API call can be perform batch prediction or inferencing. Make sure to employ **asynchronous** programming while creating prediction routes in FastAPI. More specifically, we can use "**async**" function when creating the prediction FAstAPI routes. This will enable the FastAPI to create **multiple routes concurently**. Alternatively, Flask 2.0 can be used that supports **async** routes now. In particular, the "**httpx**" library and use the "**asyncio**" co-routines. Nevertheless, in my earlier days, I used to use "**semaphore**" to limit number of concurrent requests using the asyncio library for that. 
 
+On the other hand, when we have millions of concurrent users, the containers can then be scaled up and deployed across cluster of nodes using **Kubernetes** or **docker-swarm**. I roughly know about docker-swarm, but did some deployment with kubernetes. However, when it comes to having features like model tracking, logging and registry, MLflow can be used. MLflow also integrates well within the CI/CD pipeline and, during MLOps where Data Scientist and ML Engineers can work collaboratively with deployment engineers to develop and deploy new versions of ML models and also monitor their performance. 
