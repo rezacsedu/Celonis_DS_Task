@@ -35,7 +35,7 @@ class LogisticRegression:
             error = y_batch - self.predict_(X_batch)
             update = (lr * np.dot(error.T, X_batch))
             self.weights += update
-            if np.abs(update).max() < self.thres: break
+            if np.abs(update).max() < self.threshold: break
             if i % 1000 == 0 and verbose: 
                 print(' Training accuray at {} iterations is {}'.format(i, self.evaluate_(X, y)))
             i +=1
