@@ -43,11 +43,13 @@ A simple baseline logistic regression has been implemented in Numpy (without any
 #### How to use this solution
   ```git clone https://github.com/rezacsedu/Celonis_DS_Task.git
      cd data/
-     unzip UWaveGestureLibraryAll.zip```
+     unzip UWaveGestureLibraryAll.zip
+     ```
 
 Then from within the 'Celonis_DS_Task' directory, run the following from command line:
 
-  ```python main.py``` 
+  ```python main.py
+  ``` 
 
 It will show the results on console. Besides, the convergence of the training losses for the numpy based logistic regression will be generated in the imgs folder with the 'training_loss.png' file name. 
 
