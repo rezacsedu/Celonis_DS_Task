@@ -88,13 +88,14 @@ As we can see the classifer made more wrong prediction than that when features w
 As we can see the decision boundary for the extra tree classifer manage is quite different, perhaps due to different way of stacking of the samples and quality of the features extracted. 
 
 ### Solution (Java version)
-I also developed the solution in DeepLearning4j, just to show that depending upon the requirements, I can work in Java too. The Java version is pushed in the java branch. Using the logistic regression, following results were achieved:
+I also developed the solution in DeepLearning4j, just to show that depending upon the requirements, I can work in Java too. The Java version is pushed in the [java branch](https://github.com/rezacsedu/Celonis_DS_Task/tree/java). Using the logistic regression, following results were achieved:
 
 ```
 Precision : 0.85
 Recall : 0.88125
 Accuracy : 0.8461538461538461
 ```
+This is a Maven project, by the way. 
 
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
