@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#----------------------------------------------------------------------------
+# Created By  : Md. Rezaul Karim
+# Created Date: 16/04/2022
+# version ='1.0'
+
 import os
 import numpy as np
 import sktime
@@ -6,6 +13,7 @@ from sktime.datatypes._panel._convert import from_nested_to_2d_np_array
 from pathlib import Path
 
 def extract_gesture(directory):
+    """ it taskes the path of respective user and returns a list of acceleration across all x-, y-, and z-axes """
     gesture = []
     #label = []
     pathlist = Path(directory).rglob('*.txt')
@@ -30,6 +38,10 @@ def extract_gesture(directory):
     return gesture
 
 def create_dataset(gestures, shuffle=False):
+    """ it taskes a set of gestures as input and generates a time series and labels. More technically, it creates a time series data 
+        by stacking the samples of all the gestures (total 4,480 samples) side by side, such that: i) the dimension of each sample is 
+        (n_samples, 3 * n_features) = (4480, 942), where the number of features = 314 * 3 = 942 and the nmber of n_samples = len(gesture) 
+        * 8 = 560 * 8 = 4480 """
     n_samples = 0
     n_features = 0
     for gesture in gestures:
@@ -54,6 +66,9 @@ def create_dataset(gestures, shuffle=False):
     return X, y
 
 def getFeatureSKTime(TRAIN_PATH, TEST_PATH):
+    """ this function is used to extract features using the sktime library. It takes the paths of training and set .ts file, 
+        then with the load_from_tsfile_to_dataframe function features are extracted as nested dataframe. Finally, the 
+        from_nested_to_2d_np_array method is used to convert the nested dataframe into 2D array, giving features and labels (X, y)""" 
     X_train, y_train = load_from_tsfile_to_dataframe(TEST_PATH)
     X_test, y_test = load_from_tsfile_to_dataframe(TRAIN_PATH)
     X_train = from_nested_to_2d_np_array(X_train)
