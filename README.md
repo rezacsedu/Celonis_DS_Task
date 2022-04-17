@@ -34,6 +34,18 @@ To extract feature, I wrote a script named data_util.py. THere are three methods
   - create_dataset: it taskes a set of gestures as input and generates a time series and labels. More technically, it creates a time series data by stacking the samples of all the gestures (total 4,480 samples) side by side, such that: i) the dimension of each sample is (n_samples, 3 * n_features) = (4480, 942), where the number of features = 314 * 3 = 942 and the nmber of n_samples = len(gesture) * 8 = 560 * 8 = 4480.  
   -  getFeatureSKTime: this function is used to extract features using the sktime library. It takes the paths of training and set .ts file and returns the array of features and labels (X, y).
 
+#### Task 1.2: Implementing logistic regression
+A simple baseline logistic regression has been implemented in Numpy (without any regularizers) in the [lr.py script](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/lr.py). The algorithm has several components: 
+
+1. **An activation function**: based on which the predictions will be made. We take z - product of features with weights and generate discrete class over the classes. In fact, this makes the logistic regression different from linear regression.
+2. **Cost function**: Cross-entropy between two probability distributions of y and p_pred
+3. **Random initialization of parameters**: we just randomly initialize parameters 'w' and 'b' with 0 to start with (w vector has the shape (942, 1)), whereas the values will be updated using the optimization function. Then the cross-entropy cost function is optimze to minimize the cost. 
+4. **Forward propagation and optimization**: Using the gradients descent algorithm, the gradients of the 'w' and 'b' parameters are computed and the parameters are updated, as follows: w := w - lr * dw; b := b - lr * db. Thus, looping over for n_iter, we hope to reach a convergence point where the cost function won't decrease any further. 
+
+A supporting notebook [Classification_with_manual_FE.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/Classification_with_manual_FE.ipynb) is provided, which shows how the baseline logistic regression model works compared to other classifiers (e.g.g, logistic regression in sklearn and TimeSeriesForestClassifier from the SKTIME library). 
+
+#### Task 1.3: Training other models using AutoML
+
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
 
