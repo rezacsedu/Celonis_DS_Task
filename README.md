@@ -23,13 +23,16 @@ In the above picture, 8 different types of gestures have been shown, where the d
 #### Cleaning and restructuring
 The dataset had some unwanted files too, e.g., 1.txt containing information such as "4-9: precision(11), sample frequency(100)". However, according to above description, such files are unnecessary. Therefore, I removed them keeping all the files named "[somePrefix]repeatIndex.txt". Besides, I had to do some manual way of resturucturing the folders for gestures, gesture 1, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. Anyway, sometimes we do things in a brute-force way! Even, I wrote another script for data download and extraction of .rar files. See [naive_data_prep.py]((https://github.com/rezacsedu/Celonis_DS_Task/blob/main/utils/naive_data_prep.py)) for more detail. After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
 
-<p align="center"><img src="imgs/struct.png?" width="600" height="300"></p>
+<p align="center"><img src="imgs/struct.png?" width="550" height="250"></p>
 
 ### Solution
 First, I implemented and trained a baseline logistic regression model on the feature extracted, which I evealuated on the test set w.r.t different performance metrics, confusion metric, and classification report. Then we compare it wioth sklearn-based logistic regression and a well-studied TimeSeriesForestClassifier from the SKTIME library. I'm really not expecting it to perform great because logistic regression is idelally not suitable for time series data. 
 
 #### Task 1.1: Feature extraction
-
+To extract feature, I wrote a script named data_util.py. THere are three methods in this script: 
+  - extract_gesture: it taskes the path of respective user and returns a list of acceleration across all x-, y-, and z-axes. 
+  - create_dataset: it taskes a set of gestures as input and generates a time series and labels. More technically, it creates a time series data by stacking the samples of all the gestures (total 4,480 samples) side by side, such that: i) the dimension of each sample is (n_samples, 3 * n_features) = (4480, 942), where the number of features = 314 * 3 = 942 and the nmber of n_samples = len(gesture) * 8 = 560 * 8 = 4480.  
+  -  getFeatureSKTime: this function is used to extract features using the sktime library. It takes the paths of training and set .ts file and returns the array of features and labels (X, y).
 
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
