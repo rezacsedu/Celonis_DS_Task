@@ -55,9 +55,9 @@ To give the quick impression, let's see how different classifiers performed on t
 
 Let's see how did extra tree classifier performed across different gesture types w.r.t confusion matrix:
 
-<p align="center"><img src="imgs/pycaret_compare_model.png?" width="550" height="250"></p>
+<p align="center"><img src="imgs/cm.png?" width="550" height="250"></p>
 
-As we can see it mostly made correct prediction and was less confused among classifiers. Further, we plot the ROC curve
+As we can see it mostly made correct prediction and was less confused among classes. Further, we plot the ROC curve
 
 <p align="center"><img src="imgs/roc.png?" width="550" height="250"></p>
 
@@ -65,11 +65,16 @@ The above ROC signifies the AUC scores were very consistent across different fol
 
 <p align="center"><img src="imgs/decision_boundary.png?" width="550" height="250"></p>
 
-As we can see that, except for a few samples, extra tree classiifer manage to create a clear decision boundary for different types of gesture. IN such a scenario, a linear SVM (with a linear kernel) is also expected to work better, but actually it didn't. 
+As we can see that, except for a few samples, extra tree classifer manage to create a clear decision boundary for different types of gesture. IN such a scenario, a linear SVM (with a linear kernel) is also expected to work better, but actually it didn't. 
 
-To further compare, I created another notebook with PyCaret but the models were trained on the features [PyCaret_with_FE_Numpy.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/PyCaret_with_FE_Numpy.ipynb) extracted with pure numpy. 
+To further compare, I created another notebook with PyCaret but the models were trained on the features [PyCaret_with_FE_Numpy.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/PyCaret_with_FE_Numpy.ipynb) extracted with pure numpy. Let's see how did extra tree classifier performed across different gesture types w.r.t confusion matrix:
 
-<p align="center"><img src="imgs/pycaret_compare_model.png?" width="550" height="250"></p>
+<p align="center"><img src="imgs/cm2.png?" width="550" height="250"></p>
+As we can see the classifer made more wrong prediction than that when features were extracted using sktime libarray, making it more confused among classes. Now let's see how the decision boundary for the extra tree classiifer based on two features:
+
+<p align="center"><img src="imgs/decision_boundary_2.png?" width="550" height="250"></p>
+
+As we can see the decision boundary for the extra tree classifer manage is quite different, perhaps due to different way of stacking of the samples and quality of the features extracted. 
 
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
