@@ -13,7 +13,7 @@ class LogisticRegression:
 
     def __init__(self, n_iter = 50000, threshold=1e-3):
         self.n_iter = n_iter
-        self.thres = threshold
+        self.threshold = threshold
     
     def fit(self, X, y, batch_size=128, lr=0.001, rand_seed=4, verbose=False): 
         np.random.seed(rand_seed) 
