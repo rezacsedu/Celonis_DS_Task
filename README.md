@@ -1,15 +1,15 @@
-# Gesture detection from time-series data and building production ready app
+## Gesture detection from time-series data and building production ready app
 From a given time-series data, the task is to lassify it into one of the 8 classes. 
 
 
-## Task 1: Gesture detection from time-series data 
+### Task 1: Gesture detection from time-series data 
 
   - A. We want you to use Python and numpy for all aspects of the "data science workflow" data preprocessing/feature extraction/ML-training/ML_test". (a few exceptions below)
   - B. Please implement and train a logistic regression model by hand (plain numpy)
   - C. If you want to use other ML-models (neural networks, support vector machines), feel free to use existing libraries. (Please, do not invest too much time here)
   - D. You can (should) use libraries for visualizing the results. (whatever you feel makes sense to visualize)
 
-## Dataset
+### Dataset
 Downloaded the dataset from this [link](zhen-wang.appspot.com/rice/files/uwave/uWaveGestureLibrary.zip). THis dataset is part of the paper "uWave: Accelerometer-based personalized gesture recognition and its applications" by Jiayang Liu et al. (see more at https://www.yecl.org/publications/liu09percom.pdf). Unpacking the data, leaves several .rar files, with the following meaning:
 
 ● Each .rar file includes the gesture samples collected from one user on one day. The .rar files are named as U$userIndex ($dayIndex).rar, where $userIndex is the index of the participant from 1 to 8, and $dayIndex is the index of the day from 1 to 7.
