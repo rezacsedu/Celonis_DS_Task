@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #----------------------------------------------------------------------------
-# Created By  : Md. Rezaul Karim
-# Created Date: 16/04/2022
+# Created by: Md. Rezaul Karim
+# Created date: 16/04/2022
 # version ='1.0'
 
 import numpy as np
