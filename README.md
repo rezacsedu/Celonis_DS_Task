@@ -24,7 +24,7 @@ Besides, I did some manual way of resturucturing the folders for gestures, gestu
 
 After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
 
-<p align="center"><img src="imgs/folder.png?" width="100" height="100"></p>
+<p align="center"><img src="imgs/folder.png?" width="400" height="400"></p>
 
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
