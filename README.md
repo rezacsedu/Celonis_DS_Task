@@ -20,7 +20,7 @@ Downloaded the dataset from this [link](zhen-wang.appspot.com/rice/files/uwave/u
 
 In the above picture, 8 different types of gestures have been shown, where the dot denotes the start and the arrow the end of the gesture. 
 
-Besides, I did some manual way of resturucturing the folders for gestures, gesture 1, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. But anyway, sometimes we do things in a brute-force way so! Even I wrote another script for data download and extraction of .rar files. Please see [naive_data_prep.py]((https://github.com/rezacsedu/Celonis_DS_Task/blob/main/utils/naive_data_prep.py)) for more detail. After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
+Besides, I did some manual way of resturucturing the folders for gestures, gesture 1, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. Anyway, sometimes we do things in a brute-force way! Even, I wrote another script for data download and extraction of .rar files. See [naive_data_prep.py]((https://github.com/rezacsedu/Celonis_DS_Task/blob/main/utils/naive_data_prep.py)) for more detail. After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
 
 <p align="center"><img src="imgs/struct.png?" width="600" height="300"></p>
 
