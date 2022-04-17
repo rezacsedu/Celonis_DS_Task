@@ -10,17 +10,17 @@ From a given time-series data, the task is to lassify it into one of the 8 class
   - T1.4: You can/should use libraries for visualizing the results (whatever you feel makes sense to visualize).
 
 ### Dataset
-Downloaded the dataset from this [link](zhen-wang.appspot.com/rice/files/uwave/uWaveGestureLibrary.zip). THis dataset is part of the paper "uWave: Accelerometer-based personalized gesture recognition and its applications" by Jiayang Liu et al. (see more at https://www.yecl.org/publications/liu09percom.pdf). Unpacking the data, leaves several .rar files, with the following meaning:
+Downloaded the dataset from this [link](zhen-wang.appspot.com/rice/files/uwave/uWaveGestureLibrary.zip). This dataset is part of the paper "uWave: Accelerometer-based personalized gesture recognition and its applications" by Jiayang Liu et al. (see more at https://www.yecl.org/publications/liu09percom.pdf). Unpacking the data, leaves several .rar files, with the following meaning:
 
   - Each .rar file includes the gesture samples collected from one user on one day. The .rar files are named as U$userIndex ($dayIndex).rar, where $userIndex is the index of the participant from 1 to 8, and $dayIndex is the index of the day from 1 to 7.
   - Inside each .rar file, there are .txt files recording the time series of acceleration of each gesture. The .txt files are named as [somePrefix]$gestureIndex-$repeatIndex.txt, where $gestureIndex is the index of the gesture as in the 8-gesture vocabulary, and $repeatIndex is the index of the repetition of the same gesture pattern from 1 to 10.
-  - In each .txt file, the first column is the x-axis acceleration, the second y-axis acceleration, and the third z-axis acceleration. The unit of the acceleration data is G, or acceleration of gravity. 
+  - In each .txt file, the first column is the x-axis acceleration, the second y-axis acceleration, and the third z-axis acceleration. The unit of the acceleration data is G (i.e., acceleration of gravity). 
 
 <p align="center"><img src="imgs/gesture.png?" width="400" height="300"></p>
 
 In the above picture, 8 different types of gestures have been shown, where the dot denotes the start and the arrow the end of the gesture. 
 
-Besides, I did some manual way of resturucturing the folders for gestures, gesture 1, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. Anyway, sometimes we do things in a brute-force way! Even, I wrote another script for data download and extraction of .rar files. See [naive_data_prep.py]((https://github.com/rezacsedu/Celonis_DS_Task/blob/main/utils/naive_data_prep.py)) for more detail. After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
+The dataset had some unwanted files too, e.g., 1.txt containing information such as "4-9: precision(11), sample frequency(100)". However, according to above description, such files are unnecessary. Therefore, I removed them keeping all the files named "[somePrefix]repeatIndex.txt". Besides, I had to do some manual way of resturucturing the folders for gestures, gesture 1, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. Anyway, sometimes we do things in a brute-force way! Even, I wrote another script for data download and extraction of .rar files. See [naive_data_prep.py]((https://github.com/rezacsedu/Celonis_DS_Task/blob/main/utils/naive_data_prep.py)) for more detail. After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
 
 <p align="center"><img src="imgs/struct.png?" width="600" height="300"></p>
 
