@@ -106,17 +106,13 @@ As just training and evaluating a model is of no use unless it can be used as a 
   - **T2.4:** What would you recommend to automatically transfer machine learning models to production by running microservices for inferencing?
 
 ### Solution 
-Following are minimal solutions to these tasks related to making the ML software ready
+Following are minimal solutions to these tasks related to making the ML software ready: 
 
-#### Task 2.1 
-Designing a DevOps pipeline using e.g. Github Actions. 
+  - Task 2.1: Designing a DevOps pipeline using e.g. Github Actions. 
 
-#### Task 2.2 
-Deploying and serving the model via REST API with FastAPI and Streamlit
+  - Task 2.2: Deploying and serving the model as a web app via REST API with FastAPI (for backend) and Streamlit (for frontend). In such a setting, uvicorn works for serving the API. The uvicorn is a good choice (e..g, compared to Apache or nginx) as it is a lightning-fast ASGI server implementation. 
 
-#### Task 2.3 & T2.4: 
-First, containarize FastAPI with Docker/Docker-compose then perform batch prediction. Make sure to include asynchronous FastAPI in the async in the prediction route. 
-In my earlier days, I used to use semaphore to limit number of concurrent requests. I used the asyncio library for that. 
+  - Task 2.3 & T2.4: The whole application (FastAPI + Streamlit) can be packaged using Docker and can be containarized with Docker  using Docker or Docker-compose. Having a docker-compose file configured, we can no longer need to build each Dockerfile of different images at a time or seperately. Then REST API call can be perform batch prediction or inferencing. Make sure to employ asynchronous programming while creating prediction routes in FastAPI. More specifically, we can use "async" function when creating the prediction FAstAPI routes. This will enable the FastAPI to create multiple routes concurently. Alternatively, Flask 2.0 can be used that supports async routes now. In particular, the "httpx" library and use the "asyncio" co-routines. Nevertheless, in my earlier days, I used to use "semaphore" to limit number of concurrent requests using the asyncio library for that. 
 
 The containers can then be scaled and deployed across cluster of nodes using Kubernetes or docker-swarm. 
 
