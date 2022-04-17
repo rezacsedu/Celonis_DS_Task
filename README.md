@@ -100,8 +100,7 @@ This is a Maven project, by the way.
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
 
-  - How would you design a devops pipeline using e.g. Github Actions for a Python package? Which functionalities would you include to ensure code quality and consistency?
-  - Assuming the pipeline you implemented will be deployed as a product. Now the customer also wants to enable real time classification and consume an API that returns
-the classification results. How would you fit that into the existing architecture?
-  - The whole system has been a huge success and also other customers want to use it. How would you adapt everything to be able to serve multiple customers  ==, especially keep in mind scalability and data privacy.
-  - What would you recommend to automatically transfer machine learning models to production by running microservices for inferencing?
+  - **T2.1:** How would you design a devops pipeline using e.g. Github Actions for a Python package? Which functionalities would you include to ensure code quality and consistency?
+  - **T2.1:** Assuming the pipeline you implemented will be deployed as a product. Now the customer also wants to enable real time classification and consume an API that returns the classification results. How would you fit that into the existing architecture?
+  - **T2.1:** The whole system has been a huge success and also other customers want to use it. How would you adapt everything to be able to serve multiple customers--, especially keep in mind scalability and data privacy.
+  - **T2.1:** What would you recommend to automatically transfer machine learning models to production by running microservices for inferencing?
