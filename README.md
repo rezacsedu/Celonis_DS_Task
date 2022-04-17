@@ -2,10 +2,10 @@
 From a given time-series data, the task is to classify it into one of the 8 classes. There are two aspects of the challenge: model building (from scratch and using libraries) and making the model as a ML software to be deployed in production environment. 
 
 ### Task 1: Gesture detection from time-series data 
-  - T1.1: Use Python and NumPy for all aspects of the "data science workflow" data preprocessing/feature extraction/ML-training/ML_test" (a few exceptions below)
-  - T1.2: Please implement and train a logistic regression model by hand (plain numpy)
-  - T1.3: If you want to use other ML-models (neural networks, support vector machines), feel free to use existing libraries (please, do not invest too much time here)
-  - T1.4: You can/should use libraries for visualizing the results (whatever you feel makes sense to visualize).
+  - **T1.1**: Use Python and NumPy for all aspects of the "data science workflow" data preprocessing/feature extraction/ML-training/ML_test" (a few exceptions below)
+  - **T1.2**: Please implement and train a logistic regression model by hand (plain numpy)
+  - **T1.3**: If you want to use other ML-models (neural networks, support vector machines), feel free to use existing libraries (please, do not invest too much time here)
+  - **T1.4**: You can/should use libraries for visualizing the results (whatever you feel makes sense to visualize).
 
 ### Dataset
 Downloaded the dataset from this [link](zhen-wang.appspot.com/rice/files/uwave/uWaveGestureLibrary.zip). This dataset is part of the paper "uWave: Accelerometer-based personalized gesture recognition and its applications" by Jiayang Liu et al. (see more at https://www.yecl.org/publications/liu09percom.pdf). Unpacking the data, leaves several .rar files, with the following meaning:
@@ -49,7 +49,6 @@ Then from within the 'Celonis_DS_Task' directory, run the following from command
 
   ```python main.py
   ``` 
-
 It will show the results on console. Besides, the convergence of the training losses for the NumPy based logistic regression will be generated in the imgs folder with the 'training_loss.png' file name. 
 
 A supporting notebook [Classification_with_manual_FE.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/Classification_with_manual_FE.ipynb) is provided, which shows how the baseline logistic regression model works compared to other classifiers (e.g., logistic regression in sklearn and TimeSeriesForestClassifier from the SKTIME library). In particular, my logistic regression model yields accuracy of 54%, underperforming the sklearn-based logistic regression and sktime-based TimeSeriesForestClassifier that yielded accuracy of 69% and 90%, respectively. 
@@ -94,7 +93,7 @@ Precision: 0.85
 Recall: 0.88125
 Accuracy: 0.8461538461538461
 ```
-This is a Maven project, by the way. 
+This is a Maven project, by the way. I can give a live demo too, if you'd be interested in. 
 
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
