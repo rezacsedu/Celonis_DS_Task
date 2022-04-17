@@ -41,7 +41,8 @@ A simple baseline logistic regression has been implemented in NumPy (without any
 4. **Forward propagation and optimization**: Using gradients descent algorithm, gradients of 'w' and 'b' parameters are computed and updated, as follows: w := w - lr * dw; b := b - lr * db. Thus, looping over for n_iter, we hope to reach a convergence point where the cost function won't decrease any further. 
 
 #### How to use this solution
-  ```git clone https://github.com/rezacsedu/Celonis_DS_Task.git
+  ```
+     git clone https://github.com/rezacsedu/Celonis_DS_Task.git
      cd data/
      unzip UWaveGestureLibraryAll.zip
      ```
