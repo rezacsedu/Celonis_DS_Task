@@ -1,5 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#----------------------------------------------------------------------------
+# Created By  : Md. Rezaul Karim
+# Created Date: 15/04/2022
+# version ='1.0'
 
 import requests
 import os
@@ -8,9 +12,9 @@ import pandas as pd
 import re
 import numpy as np
 
-
 def download_data(remote_url,data_dir):
-  # Function to download the Zip file given and save it to a specified directory
+  """Method to download the Zip file from the given URL and save it to a specified directory"""
+
   os.mkdir(data_dir)
   data_file = os.path.join(data_dir, 'uWaveGestureLibrary.zip')
   data = requests.get(remote_url)
@@ -19,7 +23,8 @@ def download_data(remote_url,data_dir):
 
 
 def unzip_data(data_dir):
-  # Function to extract Zip file and rar files recursively
+  """ Method to extract Zip file and rar files recursively"""
+
   arch = pyunpack.Archive(os.path.join(data_dir,'uWaveGestureLibrary.zip'))
   arch.extractall(directory=data_dir)
   os.remove(os.path.join(data_dir,'uWaveGestureLibrary.zip'))
@@ -41,11 +46,11 @@ def unzip_data(data_dir):
                   os.remove(os.path.join(root,filename))
               except Exception as e:
                   print("ERROR: BAD ARCHIVE "+os.path.join(root,filename))
-                  print(e)              
-
+                  print(e)    
 
 def extract_data(data_dir):
-  # Function to extract data from text files and load them to a pandas DataFrame
+  """Method  to extract data from text files and load them to a pandas DataFrame"""
+
   for root, dirs, files in os.walk(data_dir):
       data_df = pd.DataFrame(columns=['x-acc','y-acc','z-acc','gesture','repetition','item_id'])
       item_id = 1
@@ -68,17 +73,16 @@ def extract_data(data_dir):
               item_id +=1
   return data_df
 
-
 def get_data(remote_url,data_dir):
-  # Function to complete data preparation 
+  """ Method to complete data preparation """
+
   download_data(remote_url,data_dir)
   unzip_data(data_dir)
   data_df = extract_data(data_dir)
   X = np.array(data_df[['x-acc','y-acc','z-acc']])
   y = np.array(data_df['gesture'])
-  return X,y
-
+  return X, y
 
 remote_url = 'http://zhen-wang.appspot.com/rice/files/uwave/uWaveGestureLibrary.zip'
 data_dir = './celonis'
-X,y = get_data(remote_url, data_dir)
+X, y = get_data(remote_url, data_dir)
