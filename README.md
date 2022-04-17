@@ -20,9 +20,16 @@ Downloaded the dataset from this [link](zhen-wang.appspot.com/rice/files/uwave/u
 
 In the above picture, 8 different types of gestures have been shown, where the dot denotes the start and the arrow the end of the gesture. 
 
+#### Cleaning and restructuring
 The dataset had some unwanted files too, e.g., 1.txt containing information such as "4-9: precision(11), sample frequency(100)". However, according to above description, such files are unnecessary. Therefore, I removed them keeping all the files named "[somePrefix]repeatIndex.txt". Besides, I had to do some manual way of resturucturing the folders for gestures, gesture 1, ...., gesture 8, etc. My bad, perhaps that could be done in a automated way too. Anyway, sometimes we do things in a brute-force way! Even, I wrote another script for data download and extraction of .rar files. See [naive_data_prep.py]((https://github.com/rezacsedu/Celonis_DS_Task/blob/main/utils/naive_data_prep.py)) for more detail. After restructuring and removing unnecessary files, I created another .zip file where folders are stuructured as follows: 
 
 <p align="center"><img src="imgs/struct.png?" width="600" height="300"></p>
+
+### Solution
+First, I implemented and trained a baseline logistic regression model on the feature extracted, which I evealuated on the test set w.r.t different performance metrics, confusion metric, and classification report. Then we compare it wioth sklearn-based logistic regression and a well-studied TimeSeriesForestClassifier from the SKTIME library. I'm really not expecting it to perform great because logistic regression is idelally not suitable for time series data. 
+
+#### Task 1.1: Feature extraction
+
 
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
