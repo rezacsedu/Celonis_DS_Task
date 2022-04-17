@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
  */
 public class Gesture_Recognition {
     public static void main(String[] args) throws Exception {
-        File file = new File("C:/Users/admin-karim/Downloads/Gesture_detection/src/main/resources/gesture.csv");
+        File file = new File("src/main/resources/gesture.csv");
         RecordReader reader = new CSVRecordReader(',');
         reader.initialize(new FileSplit(file));
         DataSetIterator iterator = new RecordReaderDataSetIterator(reader, 128, 945, 8);
