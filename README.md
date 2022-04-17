@@ -100,7 +100,24 @@ This is a Maven project, by the way.
 ### Task 2: How to make a product ready ML software?
 As just training and evaluating a model is of no use unless it can be used as a web application, e.g., own website, cloud, or production ready environment. Therefore, we need to think how a model and its associated workflow/pipeline can be converted as a ML software product. 
 
-  - **T2.1:** How would you design a devops pipeline using e.g. Github Actions for a Python package? Which functionalities would you include to ensure code quality and consistency?
-  - **T2.1:** Assuming the pipeline you implemented will be deployed as a product. Now the customer also wants to enable real time classification and consume an API that returns the classification results. How would you fit that into the existing architecture?
-  - **T2.1:** The whole system has been a huge success and also other customers want to use it. How would you adapt everything to be able to serve multiple customers--, especially keep in mind scalability and data privacy.
-  - **T2.1:** What would you recommend to automatically transfer machine learning models to production by running microservices for inferencing?
+  - **T2.1:** How would you design a DevOps pipeline using e.g. Github Actions for a Python package? Which functionalities would you include to ensure code quality and consistency?
+  - **T2.2:** Assuming the pipeline you implemented will be deployed as a product. Now the customer also wants to enable real time classification and consume an API that returns the classification results. How would you fit that into the existing architecture?
+  - **T2.3:** The whole system has been a huge success and also other customers want to use it. How would you adapt everything to be able to serve multiple customers--, especially keep in mind scalability and data privacy.
+  - **T2.4:** What would you recommend to automatically transfer machine learning models to production by running microservices for inferencing?
+
+### Solution 
+Following are minimal solutions to these tasks related to making the ML software ready
+
+#### Task 2.1 
+Designing a DevOps pipeline using e.g. Github Actions. 
+
+#### Task 2.2 
+Deploying and serving the model via REST API with FastAPI and Streamlit
+
+#### Task 2.3 & T2.4: 
+First, containarize FastAPI with Docker/Docker-compose then perform batch prediction. Make sure to include asynchronous FastAPI in the async in the prediction route. 
+In my earlier days, I used to use semaphore to limit number of concurrent requests. I used the asyncio library for that. 
+
+The containers can then be scaled and deployed across cluster of nodes using Kubernetes or docker-swarm. 
+
+
