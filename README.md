@@ -144,4 +144,4 @@ However, when it comes to having features like model tracking, logging, and regi
 
 Finally, taking into consideration of all the CI/CD, deployment, and monitoring stuff, the following diagram shows overall stages of an ML CI/CD automation pipeline:
 
-<p align="center"><img src="imgs/stages_cicd.png?" width="700" height="200"></p>
+<p align="center"><img src="imgs/stages_cicd.png?" width="700" height="350"></p>
