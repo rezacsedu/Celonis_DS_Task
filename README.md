@@ -62,7 +62,7 @@ I tried with PyCaret - one of my favorite AutoML library. I found that the extra
 
 To give the quick impression, let's see how different classifiers performed on the data: 
 
-<p align="center"><img src="imgs/pycaret_compare_model.png?" width="600" height="400"></p>
+<p align="center"><img src="imgs/pycaret_compare_model.png?" width="650" height="450"></p>
 
 Let's see how extra tree classifier performed across different gesture types w.r.t confusion matrix:
 
@@ -150,4 +150,4 @@ However, when it comes to having features like model tracking, logging, and regi
 
 Finally, taking into consideration of all the CI/CD, deployment, and monitoring stuff, the following diagram shows overall stages of an ML CI/CD automation pipeline:
 
-<p align="center"><img src="imgs/stages_cicd.png?" width="700" height="350"></p>
+<p align="center"><img src="imgs/stages_cicd.png?" width="750" height="400"></p>
