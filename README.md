@@ -66,7 +66,7 @@ To give the quick impression, let's see how different classifiers performed on t
 
 Let's see how extra tree classifier performed across different gesture types w.r.t confusion matrix:
 
-<p align="center"><img src="imgs/cm.png?" width="600" height="300"></p>
+<p align="center"><img src="imgs/cm.png?" width="600" height="350"></p>
 
 As we can see it mostly made correct prediction and was less confused among classes. Further, we plot the ROC curve
 
@@ -80,10 +80,10 @@ As we can see that, except for a few samples, extra tree classifier manages to c
 
 To further compare, I created another notebook with PyCaret but the models were trained on the features [PyCaret_with_FE_Numpy.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/PyCaret_with_FE_Numpy.ipynb) extracted with pure NumPy. Let's see how extra tree classifier performed across different gesture types w.r.t confusion matrix:
 
-<p align="center"><img src="imgs/cm_2.png?" width="600" height="250"></p>
+<p align="center"><img src="imgs/cm_2.png?" width="600" height="350"></p>
 As we can see the classifier made more wrong prediction than that when features were extracted using sktime library, making it more confused among classes. Now let's see how the decision boundary for the extra tree classifier based on two features:
 
-<p align="center"><img src="imgs/decision_boundary_2.png?" width="650" height="300"></p>
+<p align="center"><img src="imgs/decision_boundary_2.png?" width="650" height="350"></p>
 
 As we can see the decision boundary for the extra tree classifier manage is quite different, perhaps due to different way of stacking of the samples and quality of the features extracted. 
 
@@ -134,7 +134,7 @@ Following are minimal solutions to these tasks related to making the ML software
 #### Task 2.1
 Although, I used GitHub Actions for setting up workflow_dispatch event trigger for CI, to be honest, I don't have much experience of designing a DevOps pipeline using e.g., GitHub Actions or creating Python package for PyPI. But as far as I remember, once I employed the CodeQL Analysis workflow, which runs a series of CodeQL security tests on code after we merge it to the main branch to ensure there are no known vulnerabilities. The workflow visualizer and live logs are also extremely useful to get a full look into how the pipeline is running. The following figure shows what different triggered events for the CI workflows: 
 
-<p align="center"><img src="imgs/ci_github_action.png?" width="700" height="400"></p>
+<p align="center"><img src="imgs/ci_github_action.png?" width="700" height="350"></p>
 
 Apart from setting up the CI/CD in an automated way, we practice peer review and test-driven development (TDD) that include coding, testing (unit test, for examples). Further, we follow commenting, consistent use of spaces, tabs, clean codes, modular programming, consistency in naming convention, etc. Please don't ask, how much of these I followed for this repo! ;)
 
