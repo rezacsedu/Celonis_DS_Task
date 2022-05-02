@@ -76,7 +76,7 @@ The above ROC signifies the AUC scores were very consistent across folds, which 
 
 <p align="center"><img src="imgs/decision_boundary.png?" width="650" height="350"></p>
 
-As we can see, except for a few samples, extra tree classifier managed to create a clear decision boundary for different types of gestures. In such a scenario, a linear SVM (with a linear kernel) is also expected to work better, but actually it didn't. 
+As seen, except for a few samples, extra tree classifier managed to create a clear decision boundary for different types of gestures. In such a scenario, a linear SVM (with a linear kernel) was also expected to work better, but actually it didn't; whereas tree-based models work much better. 
 
 To further compare, I created another notebook with PyCaret, but the models were trained on features [PyCaret_with_FE_Numpy.ipynb](https://github.com/rezacsedu/Celonis_DS_Task/blob/main/PyCaret_with_FE_Numpy.ipynb) extracted with pure NumPy. Let's see how extra tree classifier performed across different gestures types w.r.t confusion matrix:
 
@@ -86,7 +86,7 @@ As we can see the classifier made more wrong predictions than that when features
 
 <p align="center"><img src="imgs/decision_boundary_2.png?" width="650" height="350"></p>
 
-As we can see that the decision boundary for the extra tree classifier looks quite different, perhaps due to different way of stacking of samples and quality of the features extracted. 
+As seen, the decision boundary for the extra tree classifier looks quite different, perhaps due to different way of stacking of samples and quality of the features extracted. 
 
 ### Solution (Java version)
 I also developed the solution in DeepLearning4j, just to show that depending upon the requirements, I can work in Java too. The Java version is pushed in the [java branch](https://github.com/rezacsedu/Celonis_DS_Task/tree/java). Using the logistic regression, following results were achieved:
